@@ -16,54 +16,56 @@ _Create a release based workflow that is built on the foundations of the GitHub 
 </header>
 
 <!--
-  <<< Author notes: Course start >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
+  <<< Author notes: Step 6 >>>
+  Start this step by acknowledging the previous step.
+  Define terms and link to docs.github.com.
 -->
 
-## Welcome
+## Step 6: Commit a hotfix to the release
 
-Create a release based workflow that is built on the foundations of the [GitHub flow](https://guides.github.com/introduction/flow/). When your team uses a release-based workflow, GitHub makes it easy to collaborate with deployable iterations of your project that you can package and make available for a wider audience to download and use.
+_Almost there :heart:_
 
-GitHub releases allow your team to package and provide software to your users based on a specific point in the history of your project.
+Notice that I didn't delete the branch? That's intentional.
 
-- **Who is this for**: Developers, DevOps Engineers, IT Operations, managers, and teams.
-- **What you'll learn**: How to follow a release-based workflow.
-- **What you'll build**: You will create tags, releases, and release notes.
-- **Prerequisites**: If you need to learn about branches, commits, and pull requests, take [Introduction to GitHub](https://github.com/skills/introduction-to-github) first.
-- **How long**: This course takes less than 1 hour to complete.
+Sometimes mistakes can happen with releases, and we'll want to be able to correct them on the same branch.
 
-In this course, you will:
+Now that your release is finalized, we have a confession to make. Somewhere in our recent update, I made a mistake and introduced a bug. Instead of changing the text colors to green, we changed the whole game background.
 
-1. Create a beta release
-2. Add a feature to a release
-3. Open a release pull request
-4. Add release notes and merge
-5. Finalize a release
-6. Commit a hotfix
-7. Create a hotfix release
+_Tip: Sometimes GitHub Pages takes a few minutes to update. Your page might not immediately show the recent updates you've made._
 
-### How to start this course
+![image](https://user-images.githubusercontent.com/13326548/48045461-487dd800-e145-11e8-843c-b91a82213eb8.png)
 
-<!-- For start course, run in JavaScript:
-'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
-  template_name: 'release-based-workflow',
-  owner: '@me',
-  name: 'skills-release-based-workflow',
-  description: 'My clone repository',
-  visibility: 'public',
-}).toString()
--->
+"Hotfixes", or a quick fix to address a bug in software, are a normal part of development. Oftentimes you'll see application updates whose only description is "bug fixes".
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=release-based-workflow&owner=%40me&name=skills-release-based-workflow&description=My+clone+repository&visibility=public)
+When bugs come up after you release a version, you'll need to address them. We've already created a `hotfix-v1.0.1` and `fix-game-background` branches for you to start.
 
-1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, most of the prompts will automatically fill in for you.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+We'll submit a hotfix by creating and merging the pull request.
+
+### :keyboard: Activity: Create and merge the hotfix pull request
+
+1. Open a pull request with `hotfix-v1.0.1` as the `base` branch, and `fix-game-background` as the `compare` branch.
+1. Fill in the pull request template to describe your changes. You can set the pull request title to "Hotfix for broken game style". You can include a detailed pull request body, an example is below:
+   ```
+   ## Description:
+   - Fixed bug, set game background back to black
+   ```
+1. Review the changes and click **Create pull request**.
+1. We want to merge this into our hotfix branch now so click **Merge pull request**.
+
+Now we want these changes merged into `main` as well so let's create and merge a pull request with our hotfix to `main`.
+
+### :keyboard: Activity: Create the release pull request
+
+1. Open a pull request with `main` as the `base` branch, and `hotfix-v1.0.1` as the `compare` branch.
+1. Ensure the title of your pull request is "Hotfix v1.0.1".
+1. Include a detailed pull request body, an example is below:
+   ```
+   ## Description:
+   - Fixed bug introduced in last production release - set game background back to black
+   ```
+1. Review the changes and click **Create pull request**.
+1. Click **Merge pull request**.
+1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 
 <footer>
 
